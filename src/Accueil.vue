@@ -38,14 +38,14 @@ function ajouterAuPanier(pizza) {
 }
 .liste-pizzas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
 .pizza-card {
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -69,8 +69,8 @@ function ajouterAuPanier(pizza) {
 }
 
 .pizza-image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;

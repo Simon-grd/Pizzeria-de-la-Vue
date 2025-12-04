@@ -98,7 +98,7 @@ header {
   position: relative;
 }
 .logo {
-  height: 250px; 
+  height: 300px; 
   width: auto;
   cursor: pointer;
   margin-top: 10px;

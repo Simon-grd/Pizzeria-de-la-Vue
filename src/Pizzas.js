@@ -6,6 +6,10 @@ export const store = reactive({
     { name: '4 Vues', price: 49, quantity: 0, image: '/images/4-vues.jpg', description: 'Tomate, mozzarella, gorgonzola, parmesan' },
     { name: 'Vuronni', price: 44, quantity: 0, image: '/images/vuronni.jpg', description: 'Tomate, mozzarella, pepperoni épicé' },
     { name: 'Vugétarienne', price: 40, quantity: 0, image: '/images/vugetarienne.jpg', description: 'Tomate, mozzarella, poivrons, courgettes, aubergines' },
+    { name: 'Vueen', price: 42, quantity: 0, image: '/images/vueen.jpg', description: 'Tomate, mozzarella, jambon, champignons' },
+    { name: 'Vuzone', price: 46, quantity: 0, image: '/images/vuzone.jpg', description: 'Pizza pliée, ricotta, jambon, mozzarella' },
+    { name: 'Vupicante', price: 45, quantity: 0, image: '/images/vupicante.jpg', description: 'Tomate, mozzarella, chorizo, piments, oignons' },
+    { name: 'Vumarine', price: 52, quantity: 0, image: '/images/vumarine.jpg', description: 'Tomate, mozzarella, fruits de mer, ail, persil' },
   ],
   increment(pizza) {
     const p = this.pizzas.find(item => item.name === pizza.name)
