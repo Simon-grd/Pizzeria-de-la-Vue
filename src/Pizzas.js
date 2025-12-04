@@ -2,10 +2,10 @@ import { reactive, computed } from 'vue'
 
 export const store = reactive({
   pizzas: [
-    { name: 'Vugherita', price: 10, quantity: 0, image: '/images/vugherita.jpg' },
-    { name: '4 Vues', price: 13, quantity: 0, image: '/images/4-vues.jpg' },
-    { name: 'Vuronni', price: 12, quantity: 0, image: '/images/vuronni.jpg' },
-    { name: 'Vugétarienne', price: 11, quantity: 0, image: '/images/vugetarienne.jpg' },
+    { name: 'Vugherita', price: 36, quantity: 0, image: '/images/vugherita.jpg', description: 'Tomate, mozzarella, basilic frais' },
+    { name: '4 Vues', price: 49, quantity: 0, image: '/images/4-vues.jpg', description: 'Tomate, mozzarella, gorgonzola, parmesan' },
+    { name: 'Vuronni', price: 44, quantity: 0, image: '/images/vuronni.jpg', description: 'Tomate, mozzarella, pepperoni épicé' },
+    { name: 'Vugétarienne', price: 40, quantity: 0, image: '/images/vugetarienne.jpg', description: 'Tomate, mozzarella, poivrons, courgettes, aubergines' },
   ],
   increment(pizza) {
     const p = this.pizzas.find(item => item.name === pizza.name)

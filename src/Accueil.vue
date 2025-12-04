@@ -1,5 +1,6 @@
 <script setup>
 import { store } from './Pizzas.js'
+import { computed } from 'vue'
 
 function ajouterAuPanier(pizza) {
   store.increment(pizza)
@@ -13,8 +14,14 @@ function ajouterAuPanier(pizza) {
       <div v-for="pizza in store.pizzas" :key="pizza.name" class="pizza-card">
         <img :src="pizza.image" :alt="'Image de ' + pizza.name" class="pizza-image">
         <h3>{{ pizza.name }}</h3>
-        <p>{{ pizza.price }}€</p>
-        <button @click="ajouterAuPanier(pizza)">Ajouter au panier</button>
+        <p class="description">{{ pizza.description }}</p>
+        <p class="price">{{ pizza.price }}€</p>
+        <div v-if="pizza.quantity > 0" class="controls">
+          <button @click="store.decrement(pizza)">-</button>
+          <span class="quantity">{{ pizza.quantity }}</span>
+          <button @click="store.increment(pizza)">+</button>
+        </div>
+        <button v-else @click="ajouterAuPanier(pizza)">Ajouter au panier</button>
       </div>
     </div>
   </div>
@@ -22,7 +29,11 @@ function ajouterAuPanier(pizza) {
 
 <style scoped>
 .page-accueil h2 {
-  text-align: center;
+  text-align: left;
+  margin-top: 0;
+}
+.page-accueil {
+  padding: 1rem;
   margin-bottom: 1.5rem;
 }
 .liste-pizzas {
@@ -39,25 +50,71 @@ function ajouterAuPanier(pizza) {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.pizza-card h3 {
+  margin: 0.5rem 0;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #42b983;
+  margin: 0.5rem 0;
+}
+
 .pizza-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;
-  transition: transform 0.3s ease; /* Ajoute une transition douce */
+  transition: transform 0.3s ease; 
+}
+.pizza-image:hover {
+  animation: spin 7s linear infinite;
+  cursor: pointer;
 }
 
-.pizza-image:hover {
-  transform: scale(2); /* Applique un zoom de 10% */
-  cursor: pointer;
+@keyframes spin {
+  0% {
+    transform: scale(1.5) translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.5) translateY(-10px) rotate(360deg);
+  }
 }
 .pizza-card button {
   background-color: #42b983;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pizza-card button:hover {
+  background-color: #36a476;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls button {
+  width: 40px;
+  height: 40px;
+  padding: 0; /* Assure que le + et - sont bien centrés */
 }
 </style>
