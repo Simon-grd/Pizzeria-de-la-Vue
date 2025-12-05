@@ -115,6 +115,6 @@ function ajouterAuPanier(pizza) {
 .controls button {
   width: 40px;
   height: 40px;
-  padding: 0; /* Assure que le + et - sont bien centrés */
+  padding: 0; 
 }
 </style>
